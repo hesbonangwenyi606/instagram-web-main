@@ -1,0 +1,58 @@
+# Laravel Framework
+/vendor/
+/node_modules/
+/public/hot
+/public/storage
+/public/build/
+/storage/*.key
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+/storage/framework/testing/
+/storage/logs/
+/bootstrap/cache/
+
+# Environment & Configuration
+/.env
+/.env.*.local
+/.env.backup
+/.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+
+# Dependency files
+/composer.lock
+/package-lock.json
+yarn.lock
+npm-debug.log
+yarn-error.log
+
+# Development & IDE
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+.phpactor.json
+/.phpunit.cache
+*.swp
+*.swo
+
+# Operating System
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+laravel.log
+
+# Local development environments
+/xampp/
+/storage/pail/
