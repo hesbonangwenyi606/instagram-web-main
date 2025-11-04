@@ -16,17 +16,14 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /var/www/html
 
-# Copy composer files
-COPY composer.json composer.lock ./
+# Copy entire project first
+COPY . .
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
-
-# Copy all project files
-COPY . .
 
 # Install Node dependencies and build frontend
 RUN npm install
