@@ -1,7 +1,5 @@
-# Instagram Clone
-
-A full-featured Instagram clone built with Laravel, featuring user authentication, posts, comments, likes, and follows.
-
+# Instagram Clone - Laravel Full-Stack Project
+A fully functional Instagram-inspired web application built with Laravel. This project allows users to register, log in, create posts with images, follow other users, like and comment on posts, and manage their profiles — all within a responsive and user-friendly interface. It is designed as a learning project to demonstrate full-stack web development using Laravel, Blade templates, Bootstrap, and Docker.
 ## Features
 
 - **User Authentication**
@@ -36,65 +34,78 @@ A full-featured Instagram clone built with Laravel, featuring user authenticatio
 
 ## Tech Stack
 
-- **Backend**: Laravel 10.x
+- **Backend**: Laravel 10.x, PHP 8.2
 - **Frontend**: Blade templates, Bootstrap 5.x, Custom CSS
 - **Icons**: Bootstrap Icons
-- **Database**: MySQL
+- **Database**: SQLite (for local development)
 - **Authentication**: Laravel's built-in authentication system
 - **File Storage**: Local filesystem with public disk
 - **JavaScript**: Vanilla JS with Bootstrap components
+- **Containerization**: Docker & Docker Compose
 
 ## Prerequisites
 
-- PHP 8.1 or higher
+- Docker & Docker Compose
+- PHP 8.2
 - Composer
-- MySQL 5.7+
-- Node.js & NPM (for frontend dependencies)
+- Node.js & NPM
 
-## Installation
+## Installation (Docker)
 
 1. Clone the repository:
-   ```bash
-   git clone the repostory
-   cd instagram-clone
+git clone <https://github.com/hesbonangwenyi606/instagram-web-main.git>
+cd instagram-web-main
+Copy the environment example:
 
-2. Install PHP dependencies:
-   ```bash
-   composer install
 
-3. Install NPM dependencies:
-   ```bash
-   npm install
-   npm run build
+cp .env.example .env
+Create the SQLite database file:
 
-4. Copy the environment file:
-   ```bash
-   cp .env.example .env
 
-5. Generate application key:
-   ```bash
-   php artisan key:generate
+# touch database/database.sqlite
+Build and start Docker containers:
 
-6. Configure your database in the `.env` file:
-   ```env
-   DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
-   DB_DATABASE=instagram_clone
-   DB_USERNAME=your_db_username
-   DB_PASSWORD=your_db_password
 
-7. Create storage link:
-   ```bash
-   php artisan storage:link
+# docker compose up --build -d
+Set proper permissions for Laravel:
 
-8. Run migrations:
-   ```bash
-   php artisan migrate
 
-9. Start the development server:
-   ```bash
-   php artisan serve
+# docker compose exec app chown -R www-data:www-data database
+Run migrations to create database tables:
 
-10. Open your browser and visit: [http://localhost:8000](http://localhost:8000)
-# instagram-web-main
+**docker compose exec app php artisan migrate**
+(Optional) Install Node.js dependencies and build frontend assets:
+**docker compose exec app npm install**
+**docker compose exec app npm run build**
+
+Open your browser:
+## arduino
+http://localhost:8000
+
+## Author
+**Hesbon Angwenyi**  
+- Email: hesbonangwenyi@example.com  
+- Phone: +254 (0)743 573 380
+
+
+## License
+MIT License
+Copyright (c) 2025 Hesbon Angwenyi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
