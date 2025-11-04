@@ -54,6 +54,7 @@ A fully functional Instagram-inspired web application built with Laravel. This p
 
 1. Clone the repository:
 git clone <https://github.com/hesbonangwenyi606/instagram-web-main.git>
+
 cd instagram-web-main
 Copy the environment example:
 
