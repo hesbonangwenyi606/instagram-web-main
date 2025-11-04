@@ -11,8 +11,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     nodejs \
     npm \
-    && docker-php-ext-install pdo pdo_sqlite mbstring zip \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && docker-php-ext-install pdo pdo_sqlite mbstring zip
 
 # Set working directory
 WORKDIR /var/www/html
@@ -29,20 +28,16 @@ RUN composer install --no-dev --optimize-autoloader
 # Copy all project files
 COPY . .
 
-# Ensure storage and cache are writable
-RUN mkdir -p storage/framework/cache storage/framework/views storage/framework/sessions bootstrap/cache
-RUN chmod -R 775 storage bootstrap/cache
-
-# Copy .env and generate app key if missing
-COPY .env.example .env
-RUN php artisan key:generate
-
 # Install Node dependencies and build frontend
 RUN npm install
 RUN npm run build
+
+# Ensure storage and cache are writable
+RUN mkdir -p storage/framework/cache storage/framework/views storage/framework/sessions bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache
 
 # Expose port
 EXPOSE 8000
 
 # Start Laravel server
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+CMD php artisan serve --host=0.0.0.0 --port=8000
